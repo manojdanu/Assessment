@@ -20,9 +20,8 @@ public static void main(String[] args) {
 	
 		try {
 			 connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","c##manoj","manoj");
-		   	prepareStatement = connection.prepareStatement("delete from customer_details where ? = ? ");
-            prepareStatement.setString(1, dc);
-            prepareStatement.setString(2, val);
+		   	prepareStatement = connection.prepareStatement("delete from customer_details where "+dc+" = ? ");
+            prepareStatement.setString(1, val);
             int executeUpdate = prepareStatement.executeUpdate();
    System.out.println(executeUpdate);
    if(executeUpdate==1) {
